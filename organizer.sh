@@ -1,31 +1,43 @@
 #!/bin/sh
 
-dir_a="archive"
-if [ ! -d "$dir_a" ]; then
-    mkdir "$dir_a"
-fi
-
-csv_files=$(find . -maxdepth 1 -type f -name "*.csv")
 
 log_file="organizer.log"
+dir_a="archive"
 
-for csv_file in $csv_files; do
-    bname=$(basename "$csv_file")
 
-    timestamp=$(date +%Y%m%d-%H%M%S)
-
-    name="${bname%.*}"
-    extension="${bname##*.}"
-    new_name="${name}-${timestamp}.${extension}"
-
+log_csv_details() {
+    local original_file="$1"
+    local archived_name="$2"
+    local ts="$3"
+    
     {
         echo "================Log Action==============="
-        echo "Archived: $bname → $dir_a/$new_name"
-        echo "Timestamp: $timestamp"
+        echo "Archived: $original_file → $dir_a/$archived_name"
+        echo "Timestamp: $ts"
         echo "Content:"
-        cat "$csv_file"
+        cat "$original_file"
         echo "========================================="
     } >> "$log_file"
+}
 
+
+archive_csv() {
+    local csv_file="$1"
+    local bname=$(basename "$csv_file")
+    local timestamp=$(date +%Y%m%d-%H%M%S)
+    
+    local name="${bname%.*}"
+    local extension="${bname##*.}"
+    local new_name="${name}-${timestamp}.${extension}"
+    
+    log_csv_details "$csv_file" "$new_name" "$timestamp"
     mv "$csv_file" "$dir_a/$new_name"
+}
+
+
+
+[ ! -d "$dir_a" ] && mkdir "$dir_a"
+
+find . -maxdepth 1 -type f -name "*.csv" | while read -r csv_file; do
+    archive_csv "$csv_file"
 done
