@@ -35,7 +35,6 @@ archive_csv() {
 }
 
 
-
 [ ! -d "$dir_a" ] && mkdir "$dir_a"
 
 find . -maxdepth 1 -type f -name "*.csv" | while read -r csv_file; do
