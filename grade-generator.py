@@ -182,12 +182,12 @@ else:
 print(f"""
 =================== RESULTS ==========================
       
-= Total Formative Grades: {total_formative:.2f} / 60 =
-= Total Summative Grades: {total_summative:.2f} / 40 =
-= Grades: {total_grades:.2f} / 100                   =
-= GPA: {gpa:.4f} / 5                                 =
-= Status: {status}                                   =
-= Resubmission: {resubmission}                       =
+= Total Formative Grades: {total_formative:.2f} / 60 
+= Total Summative Grades: {total_summative:.2f} / 40 
+= Grades: {total_grades:.2f} / 100                   
+= GPA: {gpa:.4f} / 5                                 
+= Status: {status}                                   
+= Resubmission: {resubmission}                       
 
 ======================================================
 """)

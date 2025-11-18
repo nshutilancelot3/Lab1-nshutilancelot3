@@ -25,7 +25,7 @@ for csv_file in $csv_files; do
         echo "Content:"
         cat "$csv_file"
         echo "========================================="
-    } >> "$log_files"
+    } >> "$log_file"
 
     mv "$csv_file" "$dir_a/$new_name"
 done
