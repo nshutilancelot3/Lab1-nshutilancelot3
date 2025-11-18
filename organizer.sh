@@ -12,7 +12,7 @@ log_csv_details() {
     
     {
         echo "================Log Action==============="
-        echo "Archived: $original_file → $dir_a/$archived_name"
+        echo "Archived: $original_file >> $dir_a/$archived_name"
         echo "Timestamp: $ts"
         echo "Content:"
         cat "$original_file"

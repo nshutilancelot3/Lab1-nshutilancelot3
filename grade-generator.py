@@ -90,8 +90,8 @@ while True:
         else:
             print("The grades must be between 0 and 100.")
 
-    print(f"Total remaining weight for {total_remaining_weight_category}")
-    print(f"Total available weight {category_name}: {total_available_weight}")
+    print(f"Total remaining weight {total_available_weight}")
+    print(f"Total available weight for {category_name}: {total_remaining_weight_category}")
     
 
     while True:
