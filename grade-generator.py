@@ -180,12 +180,16 @@ else:
 
 
 print(f"""
-Total Formative Grades: {total_formative:.2f}
-Total Summative Grades: {total_summative:.2f}
-Grades: {total_grades:.2f}
-GPA: {gpa:.4f}
-Status: {status}
-Resubmission: {resubmission}
+=================== RESULTS ==========================
+      
+= Total Formative Grades: {total_formative:.2f} / 60 =
+= Total Summative Grades: {total_summative:.2f} / 40 =
+= Grades: {total_grades:.2f} / 100                   =
+= GPA: {gpa:.4f} / 5                                 =
+= Status: {status}                                   =
+= Resubmission: {resubmission}                       =
+
+======================================================
 """)
 
 if os.path.exists(file_name):
